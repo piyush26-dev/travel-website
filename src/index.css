@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: #d8dbbd;
+}
+
+.h-divider {
+  width: 100%;
+  position: relative;
+}
+
+.h-divider .shadow-mm {
+  overflow: hidden;
+  height: 5px;
+}
+
+.h-divider .shadow-mm:after {
+  content: "";
+  display: block;
+  margin: -25px auto 0;
+  width: 100%;
+  height: 25px;
+  border-radius: 125px/12px;
+  box-shadow: 0 0 2px #d8dbbd;
+}
+
+
