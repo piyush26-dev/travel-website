@@ -181,7 +181,7 @@ const AllTourDayList = ({ isOpen, onClose }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
         {currentData.map((data, index) => (
           <motion.div
             key={data.id} // Ensure a consistent and unique key
@@ -246,8 +246,8 @@ const AllTourDayList = ({ isOpen, onClose }) => {
 
             <div className="flex items-center gap-4 p-4">
               {/* Icon */}
-              <div className="bg-apple-cucumber/60 p-3 rounded text-black-powder/70">
-                <img src={data.icon} className="h-10 w-10" />
+              <div className="bg-apple-cucumber/60 p-2 rounded text-black-powder/70 h-16 w-16 min-w-16 min-h-16 flex items-center justify-center">
+                <img src={data.icon} className="w-full h-full object-fill" />
               </div>
 
               {/* Place Details */}
@@ -263,9 +263,7 @@ const AllTourDayList = ({ isOpen, onClose }) => {
 
                 <div className="flex items-center md:gap-8 gap-4 w-full">
                   <div className="flex items-center gap-2 text-black-powder">
-                    <span className="text-sm font-medium">
-                      Total Days
-                    </span>
+                    <span className="text-sm font-medium">Total Days</span>
                     <span className="text-sm font-medium">:</span>
                     <span className="text-sm font-medium">
                       <CountUp end={data.totalActivities} duration={5} />

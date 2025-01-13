@@ -140,7 +140,7 @@ const ActivityList = () => {
   return (
     <>
       {" "}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid lg:grid-cols-3 grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
         {currentData.map((tour, index) => (
           <motion.div
             key={tour.id}

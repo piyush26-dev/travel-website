@@ -292,8 +292,7 @@ const LoginForm = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="md:max-w-6xl md:mx-auto bg-apple-cucumber shadow-xl rounded-lg md:p-8 grid grid-cols-12 gap-6"
-      >
+        className="md:max-w-6xl md:mx-auto bg-apple-cucumber shadow-xl rounded-lg md:p-8 grid grid-cols-12 gap-6 p-4"      >
         {/* Form Section (col-md-8) */}
         <SimpleBar className="p-6 md:h-[500px] md:w-[350px] border border-kings-ransom rounded-lg col-span-12 md:col-span-4">
           {/* login */}

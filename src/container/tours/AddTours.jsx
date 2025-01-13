@@ -403,7 +403,7 @@ const AddTours = () => {
         <form onSubmit={handleSubmit}>
           <div className="flex items-center mb-4">
             <button
-              className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+              className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
               onClick={handleBack}
             >
               <MoveLeft size={16} />
@@ -664,7 +664,7 @@ const AddTours = () => {
               <label className="block text-sm font-medium text-black-powder mb-1">
                 Duration Days/Nights
               </label>
-              <div className="flex items-center gap-4 w-full">
+              <div className="lg:flex lg:space-y-4 space-y-4 items-center gap-4 w-full">
                 <div className="w-full">
                   <input
                     type="text"
@@ -703,7 +703,7 @@ const AddTours = () => {
             {renderField("tour_highlight", "Tour Highlights")}
             {renderField("tour_included", "Tour Included")}
             {renderField("excluded_included", "Excluded Included")}
-            <div className="flex items-center gap-4 w-full">
+            <div className="lg:flex lg:space-y-4 space-y-4 items-center gap-4 w-full">
               <div className="w-full">
                 <label className="block text-sm font-medium text-black-powder mb-1">
                   Start Point

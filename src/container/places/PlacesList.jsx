@@ -441,7 +441,7 @@ const PlacesList = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
         {currentData.map((data, index) => (
           <motion.div
             key={data.id} // Ensure a consistent and unique key
@@ -504,8 +504,8 @@ const PlacesList = () => {
 
             <div className="flex items-center gap-4 p-4">
               {/* Icon */}
-              <div className="bg-apple-cucumber/60 p-3 rounded text-black-powder/70">
-                <img src={data.icon} className="h-10 w-10" />
+              <div className="bg-apple-cucumber/60 p-2 rounded text-black-powder/70 h-16 w-16 min-w-16 min-h-16 flex items-center justify-center">
+                <img src={data.icon} className="w-full h-full object-fill" />
               </div>
 
               {/* Place Details */}
@@ -517,7 +517,7 @@ const PlacesList = () => {
                   </h2>
                 </div>
 
-                <div className="flex items-center md:gap-8 gap-4 w-full">
+                <div className="flex items-center lg:gap-8 gap-4 w-full">
                   <div className="flex items-center gap-2 text-black-powder">
                     <TramFront size={18} />{" "}
                     <span className="text-xs font-medium">:</span>
@@ -603,7 +603,7 @@ const PlacesList = () => {
                 {!isEditable ? (
                   <>
                     <button
-                      className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                      className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                       onClick={() => setIsEditable(!isEditable)}
                     >
                       <X size={16} />
@@ -612,7 +612,7 @@ const PlacesList = () => {
                 ) : (
                   <>
                     <button
-                      className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                      className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                       onClick={handleEditOn}
                       disabled={isLoading}
                     >

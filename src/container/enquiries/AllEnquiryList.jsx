@@ -366,11 +366,11 @@ const AllEnquiryList = () => {
 
   return (
     <>
-      <div className="px-4">
+      <div className="px-4 overflow-scroll md:overflow-scroll lg:overflow-hidden">
         {currentData.map((data, index) => (
-          <motion.div
+          <motion.table
             key={index}
-            className="bg-kings-ransom/35 shadow-lg rounded-lg mb-6 p-6 flex flex-col md:flex-row justify-between cursor-pointer"
+            className="bg-kings-ransom/35 shadow-lg rounded-lg mb-6 p-6 flex flex-row justify-between cursor-pointer table-auto min-w-max  lg:space-x-0 space-x-4"
             variants={cardVariant}
             initial="hidden"
             animate="visible"
@@ -398,11 +398,11 @@ const AllEnquiryList = () => {
                 </div>
                 <div>
                   <h2 className="text-sm font-medium text-black-powder/70">
-                    {data.tourName?.length > 15
-                      ? `${data.tourName.substring(0, 15)}...`
+                    {data.tourName?.length > 13
+                      ? `${data.tourName.substring(0, 13)}...`
                       : data.tourName ||
-                        (data.activityName?.length > 15
-                          ? `${data.activityName.substring(0, 15)}...`
+                        (data.activityName?.length > 13
+                          ? `${data.activityName.substring(0, 13)}...`
                           : data.activityName)}
                   </h2>
 
@@ -554,7 +554,7 @@ const AllEnquiryList = () => {
                 )}
               </div>
             </motion.div>
-          </motion.div>
+          </motion.table>
         ))}
       </div>
       <div className="flex md:justify-end justify-center">
@@ -682,7 +682,7 @@ const AllEnquiryList = () => {
                   {formatPhoneNumber(selectedEnquiry.phone_no)}
                 </h2>
               </div>
-              <div className="flex items-center gap-36">
+              <div className="lg:flex lg:space-y-0 space-y-4 items-center gap-36">
                 <div className="">
                   <label className="block text-sm font-bold text-black-powder mb-1">
                     Travel Date

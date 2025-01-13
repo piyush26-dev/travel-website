@@ -74,7 +74,7 @@ const ViewTourDays = () => {
         >
           <div className="flex items-center justify-between mb-4">
             <button
-              className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+              className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
               onClick={handleBack}
             >
               <MoveLeft size={16} />
@@ -83,7 +83,7 @@ const ViewTourDays = () => {
               {!isEditable ? (
                 <>
                   <button
-                    className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                    className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                     onClick={() => setIsEditable(!isEditable)}
                   >
                     <X size={16} />
@@ -92,7 +92,7 @@ const ViewTourDays = () => {
               ) : (
                 <>
                   <button
-                    className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                    className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                     onClick={handleEditOn}
                     disabled={isLoading}
                   >

@@ -44,6 +44,10 @@ const TopNavbar = ({ onButtonClick }) => {
     navigate("/add-attraction");
   };
 
+  const handleViewProfile = () => {
+    navigate("/settings");
+  }
+
   // Determine navbar content based on activeLink
   const renderNavbarContent = () => {
     if (activeLink === "/") {
@@ -125,7 +129,7 @@ const TopNavbar = ({ onButtonClick }) => {
         showSearch: false,
         showButton: false,
       };
-    } else if (activeLink.startsWith("/transfers")) {
+    } else if (activeLink.startsWith("/tour-transfers-list")) {
       return {
         heading: "Tour Transfers",
         showSearch: true,
@@ -275,9 +279,10 @@ const TopNavbar = ({ onButtonClick }) => {
           <motion.img
             src="https://randomuser.me/api/portraits/men/1.jpg" // Add avatar image URL
             alt="Avatar"
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-10 h-10 rounded-full object-cover cursor-pointer"
             whileHover={{ scale: 1.1 }} // Hover animation (increase size)
             transition={{ type: "spring", stiffness: 300 }}
+            onClick={handleViewProfile}
           />
         </div>
       </motion.div>

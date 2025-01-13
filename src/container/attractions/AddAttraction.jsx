@@ -278,7 +278,7 @@ const AddAttraction = () => {
         >
           <div className="flex items-center mb-4">
             <button
-              className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+              className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
               onClick={handleBack}
             >
               <MoveLeft size={16} />
@@ -481,9 +481,9 @@ const AddAttraction = () => {
                     <h4 className="font-medium text-gray-700 mb-2">
                       {item.day}
                     </h4>
-                    <div className="flex gap-4">
+                    <div className="lg:flex lg:space-y-0 space-y-4 gap-4">
                       {/* Start Time */}
-                      <div className="w-1/2">
+                      <div className="lg:w-1/2">
                         <label className="block text-sm font-medium text-black-powder mb-1">
                           Start Time
                         </label>
@@ -532,7 +532,7 @@ const AddAttraction = () => {
                       </div>
 
                       {/* End Time */}
-                      <div className="w-1/2">
+                      <div className="lg:w-1/2">
                         <label className="block text-sm font-medium text-black-powder mb-1">
                           End Time
                         </label>

@@ -162,7 +162,7 @@ const SideBar = ({
                 // onClick={() => handleNavLinkClick("/")}
                 onClick={() => {
                   handleSubMenuOpen("Tours");
-                  handleNavLinkMenuClick("/");
+                  // handleNavLinkMenuClick("/");
                 }}
                 className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
                   activeLink === ""
@@ -295,10 +295,10 @@ const SideBar = ({
                     </span>
                   </NavLink>
                   <NavLink
-                    to="/transfers"
-                    onClick={() => handleNavLinkMenuClick("/transfers")}
+                    to="/tour-transfers-list"
+                    onClick={() => handleNavLinkMenuClick("/tour-transfers-list")}
                     className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                      activeLink === "/transfers"
+                      activeLink === "/tour-transfers-list"
                         ? "bg-[#B59F78] text-black/70"
                         : "text-[#D8DBBD]"
                     }`}
@@ -450,134 +450,336 @@ const SideBar = ({
         >
           {/* Drawer Content */}
           <div className="mt-[4rem] space-y-6 ">
-            <div className={`space-y-2 ${open ? "pl-5" : "pl-[0.8rem]"} pb-5`}>
-              <NavLink
-                to="/"
-                onClick={() => {
-                  handleNavLinkMenuClick("/");
-                  setIsOpen(!open);
-                }}
-                className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                  activeLink === "/"
-                    ? "bg-[#B59F78] text-black/70"
-                    : "text-[#D8DBBD]"
-                }`}
+            <SimpleBar
+              style={{ maxHeight: "100vh" }}
+              className={`h-[20rem] overflow-y-auto`}
+            >
+              <div
+                className={`space-y-2 ${open ? "pl-5" : "pl-[0.8rem]"} pb-5`}
               >
-                <LayoutDashboard size={18} />
-                <span
-                  className={`transition-opacity duration-200 text-sm font-medium ${
-                    !open && "hidden"
-                  } origin-left`}
+                <NavLink
+                  to="/"
+                  onClick={() => {
+                    handleNavLinkMenuClick("/");
+                    setIsOpen(!open);
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
                 >
-                  Dashboard
-                </span>
-              </NavLink>
-              <NavLink
-                to="/places"
-                onClick={() => {
-                  handleNavLinkMenuClick("/places");
-                  setIsOpen(!open);
-                }}
-                className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                  activeLink === "/places"
-                    ? "bg-[#B59F78] text-black/70"
-                    : "text-[#D8DBBD]"
-                }`}
-              >
-                <MapPinHouse size={18} />
-                <span
-                  className={`transition-opacity duration-200 text-sm font-medium ${
-                    !open && "hidden"
-                  } origin-left`}
+                  <LayoutDashboard size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Dashboard
+                  </span>
+                </NavLink>
+                <NavLink
+                  to="/places"
+                  onClick={() => {
+                    setIsOpen(!open);
+                    handleNavLinkMenuClick("/places");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/places"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
                 >
-                  Places
-                </span>
-              </NavLink>
-              <NavLink
-                to="/tours"
-                onClick={() => {
-                  handleNavLinkMenuClick("/tours");
-                  setIsOpen(!open);
-                }}
-                className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                  activeLink === "/tours"
-                    ? "bg-[#B59F78] text-black/70"
-                    : "text-[#D8DBBD]"
-                }`}
-              >
-                <TramFront size={18} />
-                <span
-                  className={`transition-opacity duration-200 text-sm font-medium ${
-                    !open && "hidden"
-                  } origin-left`}
+                  <MapPinHouse size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Places
+                  </span>
+                </NavLink>
+                <NavLink
+                  // to="/"
+                  // onClick={() => handleNavLinkClick("/")}
+                  onClick={() => {
+                    handleSubMenuOpen("Tours");
+                    // handleNavLinkMenuClick("/");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === ""
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
                 >
-                  Tours
-                </span>
-              </NavLink>
-              <NavLink
-                to="/activities"
-                onClick={() => {
-                  handleNavLinkMenuClick("/activities");
-                  setIsOpen(!open);
-                }}
-                className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                  activeLink === "/activities"
-                    ? "bg-[#B59F78] text-black/70"
-                    : "text-[#D8DBBD]"
-                }`}
-              >
-                <TentTree size={18} />
-                <span
-                  className={`transition-opacity duration-200 text-sm font-medium ${
-                    !open && "hidden"
-                  } origin-left`}
+                  <TramFront size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                    onClick={() => {
+                      handleSubMenuOpen("Tours");
+                    }}
+                  >
+                    Tours
+                  </span>
+                  <span
+                    className={`${!subMenuOpen && "rotate-180"} ${
+                      !open && "hidden"
+                    } `}
+                  >
+                    <ChevronDown size={18} />
+                  </span>
+                </NavLink>
+                <div
+                  className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
+                    !subMenuOpen ? "max-h-screen" : "max-h-0 hidden"
+                  }`}
                 >
-                  Activities
-                </span>
-              </NavLink>
-              <NavLink
-                to="/users"
-                onClick={() => {
-                  handleNavLinkMenuClick("/users");
-                  setIsOpen(!open);
-                }}
-                className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                  activeLink === "/users"
-                    ? "bg-[#B59F78] text-black/70"
-                    : "text-[#D8DBBD]"
-                }`}
-              >
-                <Users size={18} />
-                <span
-                  className={`transition-opacity duration-200 text-sm font-medium ${
-                    !open && "hidden"
-                  } origin-left`}
+                  <ul
+                    className={`${
+                      !open
+                        ? "mt-2 space-y-2"
+                        : "rounded-md bg-apple-cucumber/15 pl-2  py-2 gap-x-4 rounded-t-none mt-1 space-y-2"
+                    }`}
+                  >
+                    <NavLink
+                      to="/tours"
+                      onClick={() => {
+                        setIsOpen(!open);
+                        handleNavLinkMenuClick("/tours");
+                      }}
+                      className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                        activeLink === "/tours"
+                          ? "bg-[#B59F78] text-black/70"
+                          : "text-[#D8DBBD]"
+                      }`}
+                    >
+                      <Binoculars size={18} />
+                      <span
+                        className={`transition-opacity duration-200 text-sm font-medium ${
+                          !open && "hidden"
+                        } origin-left`}
+                      >
+                        All Tours
+                      </span>
+                    </NavLink>
+                    <NavLink
+                      to="/tour-days"
+                      onClick={() => {
+                        setIsOpen(!open);
+                        handleNavLinkMenuClick("/tour-days");
+                      }}
+                      className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                        activeLink === "/tour-days"
+                          ? "bg-[#B59F78] text-black/70"
+                          : "text-[#D8DBBD]"
+                      }`}
+                    >
+                      <CalendarDays size={18} />
+                      <span
+                        className={`transition-opacity duration-200 text-sm font-medium ${
+                          !open && "hidden"
+                        } origin-left`}
+                      >
+                        Tour Days
+                      </span>
+                    </NavLink>
+                    <NavLink
+                      to="/summarized-view"
+                      onClick={() => {
+                        setIsOpen(!open);
+                        handleNavLinkMenuClick("/summarized-view");
+                      }}
+                      className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                        activeLink === "/summarized-view"
+                          ? "bg-[#B59F78] text-black/70"
+                          : "text-[#D8DBBD]"
+                      }`}
+                    >
+                      <NotebookPen size={18} />
+                      <span
+                        className={`transition-opacity duration-200 text-sm font-medium ${
+                          !open && "hidden"
+                        } origin-left`}
+                      >
+                        Summarized View
+                      </span>
+                    </NavLink>
+
+                    <NavLink
+                      to="/tour-activities"
+                      onClick={() => {
+                        setIsOpen(!open);
+                        handleNavLinkMenuClick("/tour-activities");
+                      }}
+                      className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                        activeLink === "/tour-activities"
+                          ? "bg-[#B59F78] text-black/70"
+                          : "text-[#D8DBBD]"
+                      }`}
+                    >
+                      <Volleyball size={18} />
+                      <span
+                        className={`transition-opacity duration-200 text-sm font-medium ${
+                          !open && "hidden"
+                        } origin-left`}
+                      >
+                        Activities
+                      </span>
+                    </NavLink>
+                    <NavLink
+                      to="/all-stay-list-tour"
+                      onClick={() => {
+                        setIsOpen(!open);
+                        handleNavLinkMenuClick("/all-stay-list-tour");
+                      }}
+                      className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                        activeLink === "/all-stay-list-tour"
+                          ? "bg-[#B59F78] text-black/70"
+                          : "text-[#D8DBBD]"
+                      }`}
+                    >
+                      <House size={18} />
+                      <span
+                        className={`transition-opacity duration-200 text-sm font-medium ${
+                          !open && "hidden"
+                        } origin-left`}
+                      >
+                        Stay
+                      </span>
+                    </NavLink>
+                    <NavLink
+                      to="/tour-transfers-list"
+                      onClick={() => {
+                        setIsOpen(!open);
+                        handleNavLinkMenuClick("/tour-transfers-list");
+                      }}
+                      className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                        activeLink === "/tour-transfers-list"
+                          ? "bg-[#B59F78] text-black/70"
+                          : "text-[#D8DBBD]"
+                      }`}
+                    >
+                      <CalendarSync size={18} />
+                      <span
+                        className={`transition-opacity duration-200 text-sm font-medium ${
+                          !open && "hidden"
+                        } origin-left`}
+                      >
+                        Transfers
+                      </span>
+                    </NavLink>
+                  </ul>
+                </div>
+
+                <NavLink
+                  to="/activities"
+                  onClick={() => {
+                    setIsOpen(!open);
+                    handleNavLinkMenuClick("/activities");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/activities"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
                 >
-                  Users
-                </span>
-              </NavLink>
-              <NavLink
-                to="/settings"
-                onClick={() => {
-                  handleNavLinkMenuClick("/settings");
-                  setIsOpen(!open);
-                }}
-                className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
-                  activeLink === "/settings"
-                    ? "bg-[#B59F78] text-black/70"
-                    : "text-[#D8DBBD]"
-                }`}
-              >
-                <Settings size={18} />
-                <span
-                  className={`transition-opacity duration-200 text-sm font-medium ${
-                    !open && "hidden"
-                  } origin-left`}
+                  <TentTree size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Activities
+                  </span>
+                </NavLink>
+                <NavLink
+                  to="/all-enquiry-list"
+                  onClick={() => {
+                    setIsOpen(!open);
+                    handleNavLinkMenuClick("/all-enquiry-list");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/all-enquiry-list"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
                 >
-                  Settings
-                </span>
-              </NavLink>
-            </div>
+                  <ClipboardPenLine size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Enquiries
+                  </span>
+                </NavLink>
+                <NavLink
+                  to="/attractions-list"
+                  onClick={() => {
+                    setIsOpen(!open);
+                    handleNavLinkMenuClick("/attractions-list");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/attractions-list"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
+                >
+                  <FerrisWheel size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Attractions
+                  </span>
+                </NavLink>
+                <NavLink
+                  to="/users"
+                  onClick={() => {
+                    setIsOpen(!open);
+                    handleNavLinkMenuClick("/users");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/users"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
+                >
+                  <Users size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Users
+                  </span>
+                </NavLink>
+                <NavLink
+                  to="/settings"
+                  onClick={() => {
+                    setIsOpen(!open);
+                    handleNavLinkMenuClick("/settings");
+                  }}
+                  className={`flex rounded-tl rounded-bl p-2 cursor-pointer  text-sm items-center gap-x-4 hover:text-black/70 hover:bg-[#D8DBBD] duration-300 transition-all ${
+                    activeLink === "/settings"
+                      ? "bg-[#B59F78] text-black/70"
+                      : "text-[#D8DBBD]"
+                  }`}
+                >
+                  <Settings size={18} />
+                  <span
+                    className={`transition-opacity duration-200 text-sm font-medium ${
+                      !open && "hidden"
+                    } origin-left`}
+                  >
+                    Settings
+                  </span>
+                </NavLink>
+              </div>
+            </SimpleBar>
 
             <div className="h-divider">
               <div className="shadow-mm"></div>
@@ -588,6 +790,7 @@ const SideBar = ({
                 <div
                   className="flex items-center cursor-pointer text-[#D8DBBD] hover:text-[#B59F78] duration-300 transition-all"
                   onClick={() => {
+                    onButtonLogOutClick();
                     setIsOpen(!open);
                   }}
                 >

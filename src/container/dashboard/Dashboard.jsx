@@ -171,7 +171,7 @@ const Dashboard = () => {
               whileHover="hover"
               whileTap="tap"
             >
-              <div className="p-3 bg-apple-cucumber/70 rounded-lg  w-16">
+              <div className="p-3 bg-apple-cucumber/70 rounded-lg  w-16 min-w-16">
                 <img src={card.icon} className="w-full h-full object-fill" />
               </div>
               <div>
@@ -226,7 +226,7 @@ const Dashboard = () => {
                 Booking
               </motion.h1>
             </div>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] lg:grid-cols-3 lg:gap-8 gap-4">
               {/* First Card: BlueBayoux */}
               <motion.div
                 className="bg-[#B6B4A5]/70 text-black-powder px-6 py-4 rounded-xl shadow-lg"

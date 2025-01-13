@@ -300,7 +300,7 @@ const ViewAttraction = () => {
         >
           <div className="flex items-center justify-between mb-4">
             <button
-              className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+              className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
               onClick={handleBack}
             >
               <MoveLeft size={16} />
@@ -309,7 +309,7 @@ const ViewAttraction = () => {
               {!isEditable ? (
                 <>
                   <button
-                    className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                    className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                     onClick={() => setIsEditable(!isEditable)}
                   >
                     <X size={16} />
@@ -318,7 +318,7 @@ const ViewAttraction = () => {
               ) : (
                 <>
                   <button
-                    className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                    className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                     onClick={handleEditOn}
                     disabled={isLoading}
                   >
@@ -332,7 +332,7 @@ const ViewAttraction = () => {
               )}
 
               <button
-                className="hidden bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm md:flex items-center gap-2"
+                className="bg-black-powder text-apple-cucumber justify-center w-8 h-8 rounded hover:bg-kings-ransom hover:text-black-powder transition-all duration-300 font-medium text-sm flex items-center gap-2"
                 onClick={handleDeleteModalOpen}
               >
                 <Trash2 size={16} />
@@ -570,9 +570,9 @@ const ViewAttraction = () => {
                     <h4 className="font-medium text-gray-700 mb-2">
                       {item.day}
                     </h4>
-                    <div className="flex gap-4">
+                    <div className="lg:flex space-y-4 lg:space-y-0 gap-4">
                       {/* Start Time */}
-                      <div className="w-1/2">
+                      <div className="lg:w-1/2">
                         <label className="block text-sm font-medium text-black-powder mb-1">
                           Start Time
                         </label>
@@ -629,7 +629,7 @@ const ViewAttraction = () => {
                       </div>
 
                       {/* End Time */}
-                      <div className="w-1/2">
+                      <div className="lg:w-1/2">
                         <label className="block text-sm font-medium text-black-powder mb-1">
                           End Time
                         </label>
@@ -690,134 +690,136 @@ const ViewAttraction = () => {
               </div>
 
               <div className=" space-y-4">
-                <div className="">
-                  <label className="block text-sm font-medium text-black-powder mb-1">
-                    Points of Intrastate
-                  </label>
-                  {formDetails.point_of_intrastate.map((point, index) => (
-                    <div
-                      key={index}
-                      className="w-full px-3 py-2 border border-dashed border-kings-ransom rounded focus:outline-none focus:border-kings-ransom hover:border-kings-ransom bg-transparent text-sm font-normal text-[#33372C] space-y-4 mb-4"
-                    >
-                      <div>
-                        {!point.image ? (
-                          <motion.div
-                            className={`border-dashed border-2 ${
-                              isEditable
-                                ? "border-gray-300 cursor-not-allowed"
-                                : "border-kings-ransom"
-                            } rounded-lg flex items-center justify-center ${
-                              isEditable
-                                ? "bg-gray-200"
-                                : "bg-kings-ransom/10 hover:bg-kings-ransom/20"
-                            } w-[10rem] h-[10rem] text-black-powder transition-all duration-300`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                          >
-                            <label
-                              className={`flex flex-col items-center justify-center w-full h-full ${
+                {!isEditable && (
+                  <div className="">
+                    <label className="block text-sm font-medium text-black-powder mb-1">
+                      Points of Intrastate
+                    </label>
+                    {formDetails.point_of_intrastate.map((point, index) => (
+                      <div
+                        key={index}
+                        className="w-full px-3 py-2 border border-dashed border-kings-ransom rounded focus:outline-none focus:border-kings-ransom hover:border-kings-ransom bg-transparent text-sm font-normal text-[#33372C] space-y-4 mb-4"
+                      >
+                        <div>
+                          {!point.image ? (
+                            <motion.div
+                              className={`border-dashed border-2 ${
                                 isEditable
-                                  ? "cursor-not-allowed"
-                                  : "cursor-pointer"
-                              }`}
+                                  ? "border-gray-300 cursor-not-allowed"
+                                  : "border-kings-ransom"
+                              } rounded-lg flex items-center justify-center ${
+                                isEditable
+                                  ? "bg-gray-200"
+                                  : "bg-kings-ransom/10 hover:bg-kings-ransom/20"
+                              } w-[10rem] h-[10rem] text-black-powder transition-all duration-300`}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
                             >
-                              <div className="flex items-center justify-center">
-                                <div className="text-black-powder/70">
-                                  <div className="flex items-center justify-center">
-                                    <Plus size={65} />
+                              <label
+                                className={`flex flex-col items-center justify-center w-full h-full ${
+                                  isEditable
+                                    ? "cursor-not-allowed"
+                                    : "cursor-pointer"
+                                }`}
+                              >
+                                <div className="flex items-center justify-center">
+                                  <div className="text-black-powder/70">
+                                    <div className="flex items-center justify-center">
+                                      <Plus size={65} />
+                                    </div>
+                                    <p
+                                      className={
+                                        isEditable ? "text-gray-400" : ""
+                                      }
+                                    >
+                                      {isEditable
+                                        ? "Cannot select image"
+                                        : "Select image"}
+                                    </p>
                                   </div>
-                                  <p
-                                    className={
-                                      isEditable ? "text-gray-400" : ""
-                                    }
-                                  >
-                                    {isEditable
-                                      ? "Cannot select image"
-                                      : "Select image"}
-                                  </p>
                                 </div>
-                              </div>
-                              <input
-                                className="hidden"
-                                type="file"
-                                accept="image/*"
-                                disabled={isEditable}
-                                onChange={(e) => {
-                                  const file = e.target.files[0];
+                                <input
+                                  className="hidden"
+                                  type="file"
+                                  accept="image/*"
+                                  disabled={isEditable}
+                                  onChange={(e) => {
+                                    const file = e.target.files[0];
 
-                                  handlePointChange(
-                                    index,
-                                    "image",
-                                    file || null
-                                  );
-                                }}
+                                    handlePointChange(
+                                      index,
+                                      "image",
+                                      file || null
+                                    );
+                                  }}
+                                />
+                              </label>
+                            </motion.div>
+                          ) : (
+                            <div className="relative w-[10rem] h-[10rem]">
+                              <img
+                                src={URL.createObjectURL(point.image)}
+                                alt="Selected"
+                                className="w-full h-full object-fill rounded-lg border border-kings-ransom"
                               />
-                            </label>
-                          </motion.div>
-                        ) : (
-                          <div className="relative w-[10rem] h-[10rem]">
-                            <img
-                              src={URL.createObjectURL(point.image)}
-                              alt="Selected"
-                              className="w-full h-full object-fill rounded-lg border border-kings-ransom"
-                            />
-                            <button
-                              onClick={() => {
-                                handlePointChange(index, "image", null); // Optionally reset the file
-                              }}
-                              disabled={isEditable}
-                              className={`absolute top-1 right-1 ${
-                                isEditable
-                                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                  : "bg-kings-ransom/35 hover:bg-dark-olive-green hover:text-apple-cucumber duration-300 transition-all"
-                              }  rounded p-1 shadow `}
-                            >
-                              <X size={15} />
-                            </button>
-                          </div>
-                        )}
+                              <button
+                                onClick={() => {
+                                  handlePointChange(index, "image", null); // Optionally reset the file
+                                }}
+                                disabled={isEditable}
+                                className={`absolute top-1 right-1 ${
+                                  isEditable
+                                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                    : "bg-kings-ransom/35 hover:bg-dark-olive-green hover:text-apple-cucumber duration-300 transition-all"
+                                }  rounded p-1 shadow `}
+                              >
+                                <X size={15} />
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                        <div className="">
+                          <label className="block text-sm font-medium text-black-powder mb-1">
+                            Title
+                          </label>
+                          <input
+                            type="text"
+                            value={point.title}
+                            onChange={(e) =>
+                              handlePointChange(index, "title", e.target.value)
+                            }
+                            placeholder="Title"
+                            disabled={isEditable}
+                            className={`${
+                              isEditable ? "cursor-not-allowed" : ""
+                            } w-full px-3 py-2 border border-kings-ransom rounded focus:outline-none focus:border-kings-ransom hover:border-kings-ransom bg-transparent text-sm font-normal`}
+                          />
+                        </div>
+                        <div className="">
+                          <label className="block text-sm font-medium text-black-powder mb-1">
+                            Description
+                          </label>
+                          <textarea
+                            value={point.description}
+                            onChange={(e) =>
+                              handlePointChange(
+                                index,
+                                "description",
+                                e.target.value
+                              )
+                            }
+                            placeholder="Description"
+                            disabled={isEditable}
+                            className={`${
+                              isEditable ? "cursor-not-allowed" : ""
+                            } w-full px-3 py-2 border border-kings-ransom rounded focus:outline-none focus:border-kings-ransom hover:border-kings-ransom bg-transparent text-sm font-normal`}
+                          />
+                        </div>
                       </div>
-                      <div className="">
-                        <label className="block text-sm font-medium text-black-powder mb-1">
-                          Title
-                        </label>
-                        <input
-                          type="text"
-                          value={point.title}
-                          onChange={(e) =>
-                            handlePointChange(index, "title", e.target.value)
-                          }
-                          placeholder="Title"
-                          disabled={isEditable}
-                          className={`${
-                            isEditable ? "cursor-not-allowed" : ""
-                          } w-full px-3 py-2 border border-kings-ransom rounded focus:outline-none focus:border-kings-ransom hover:border-kings-ransom bg-transparent text-sm font-normal`}
-                        />
-                      </div>
-                      <div className="">
-                        <label className="block text-sm font-medium text-black-powder mb-1">
-                          Description
-                        </label>
-                        <textarea
-                          value={point.description}
-                          onChange={(e) =>
-                            handlePointChange(
-                              index,
-                              "description",
-                              e.target.value
-                            )
-                          }
-                          placeholder="Description"
-                          disabled={isEditable}
-                          className={`${
-                            isEditable ? "cursor-not-allowed" : ""
-                          } w-full px-3 py-2 border border-kings-ransom rounded focus:outline-none focus:border-kings-ransom hover:border-kings-ransom bg-transparent text-sm font-normal`}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
                 {!isEditable && (
                   <div className="flex justify-end">
                     <button

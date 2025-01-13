@@ -391,3 +391,54 @@ export const AttractionValidation = (userData) => {
   return { errors, isValid };
 };
 
+
+// admin profile validation
+
+
+export const AdminValidation = (userData) => {
+  let errors = {};
+  let isValid = true;
+  const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,4}$/i;
+  let capitalRegex = /^[a-zA-Z\s]*$/;
+
+  if (userData.admin_profile !== undefined && !userData.admin_profile) {
+    errors.admin_profile = "Admin profile is required.";
+    isValid = false;
+  } else if (userData?.admin_profile) {
+    errors.admin_profile = "";
+  }
+
+  if (userData.admin_full_name !== undefined && !userData.admin_full_name) {
+    errors.admin_full_name = "Full name is required .";
+    isValid = false;
+  } else if (
+    userData.admin_full_name !== undefined &&
+    !capitalRegex.test(userData?.admin_full_name)
+  ) {
+    errors.admin_full_name = "Full name cannot contain numbers.";
+    isValid = false;
+  } else if (userData?.admin_full_name) {
+    errors.admin_full_name = "";
+  }
+
+
+  if (
+    userData?.admin_email_address !== undefined &&
+    !userData?.admin_email_address
+  ) {
+    errors.admin_email_address = "Please enter email address";
+    isValid = false;
+  } else if (
+    userData?.admin_email_address !== undefined &&
+    !emailregex.test(userData?.admin_email_address)
+  ) {
+    errors.admin_email_address = "Please enter valid email address";
+    isValid = false;
+  } else if (userData?.admin_email_address) {
+    errors.admin_email_address = "";
+  }
+
+
+  return { errors, isValid };
+};
+

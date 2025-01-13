@@ -46,6 +46,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import AllEnquiryList from "./container/enquiries/AllEnquiryList";
 import ViewEnquiry from "./container/enquiries/ViewEnquiry";
 import Dashboard from "./container/dashboard/Dashboard";
+import AdminProfile from "./container/admin-settings/admin-profile/AdminProfile";
 
 function App() {
 
@@ -105,7 +106,6 @@ function App() {
             <Route path="/activities" element={<ActivityList />} />
             <Route path="/add-activity" element={<AddActivity />} />
             <Route path="/view-activity" element={<ViewActivity />} />
-            <Route path="/settings" element={<Contant />} />
             <Route path="/summarized-view" element={<SummarizedList />} />
             <Route
               path="/add-summarized-tour"
@@ -118,10 +118,7 @@ function App() {
             <Route path="/add-tour-activity" element={<AddTourActivity />} />
             <Route path="/tour-activities" element={<TourActivityList />} />
             <Route path="/view-tour-activity" element={<ViewTourActivity />} />
-            <Route
-              path="/view-tour-activity"
-              element={<AllTransfersTourList />}
-            />
+            <Route path="/tour-transfers-list" element={<AllTransfersTourList />} />
             <Route
               path="/view-transfers-tour"
               element={<ViewTransfersTour />}
@@ -140,6 +137,7 @@ function App() {
             <Route path="/user-view" element={<ViewUser />} />
             <Route path="/all-enquiry-list" element={<AllEnquiryList />} />
             <Route path="/view-enquiry" element={<ViewEnquiry />} />
+            <Route path="/settings" element={<AdminProfile />} />
           </Route>
         </Routes>
       </Router>
